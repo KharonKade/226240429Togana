@@ -239,6 +239,6 @@ $inputString = "Hello";
 
 $outputString = reverseString($inputString);
 echo "Input: \"$inputString\"\n";
-echo "Output: \"outputString\"\n"; 
+echo "Output: \"$outputString\"\n"; 
 ?>
 
