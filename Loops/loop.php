@@ -1,5 +1,5 @@
 <?php
-echo "Activity 1";
+echo "<h2><strong>Activity 1</strong></h2>";
 ?>
 
 <?php
@@ -11,6 +11,8 @@ while ($number <= 10) {
 }
 ?>
 
+<br>
+
 <?php
 $number = 2;
 
@@ -20,30 +22,43 @@ while ($number <= 20) {
 }
 ?>
 
-<?php
-echo "Activity 2";
-?>
+<br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password validation</title>
+</head>
+<body>
+    <h2>Activity 2</h2>
+
+    <form method="POST" action="">
+        <label for ="password" >Enter Password: </label>
+        <input type ="password" name="password" id="password" required>
+        <button type="submit">Submit</button>
+    </form>
 
 <?php
 $password = "password123";
-$input = "";
 
-do {
-    echo "Please enter the password: ";
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    $input_password = $_POST['password'];
 
-
-    $input = trim(fgets(STDIN));
-
-    if ($input !== $password) {
-        echo "Incorrect password. \n";
+    if ($input_password === $password) {
+        echo"Access Granted.";
+    } else {
+        echo "Incorrect password";
     }
-} while ($input !== $password);
-
-echo "Access Granted.\n";
+}
 ?>
+</body>
+</html>
+
+<br><br>
 
 <?php
-echo "Activity 3";
+echo "<h2><strong>Activity 3</strong></h2>";
 ?>
 
 <?php
@@ -56,8 +71,10 @@ for ($a = 1; $a <= 10; $a++) {
 }
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 4";
+echo "<h2><strong>Activity 4</strong></h2>";
 ?>
 
 <?php
@@ -75,8 +92,10 @@ for ($a = 1; $a <= 10; $a++) {
 }
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 5";
+echo "<h2><strong>Activity 5</strong></h2>";
 ?>
 
 <?php
@@ -91,8 +110,10 @@ while ($num <= 100) {
 echo "The sum of numbers from 1 to 100 is: $sum";
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 6";
+echo "<h2><strong>Activity 6</strong></h2>";
 ?>
 
 <?php
@@ -100,13 +121,15 @@ $movies = ["Lord of the Rings", "The Hobbits", "Inception", "Interstellar", "Gra
 $count = 1;
 
 foreach ($movies as $movie) {
-    echo "$count. $movie\n";
+    echo "$count. $movie<br>";
     $count++;
 }
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 7";
+echo "<h2><strong>Activity 7</strong></h2>";
 ?>
 
 <?php
@@ -117,13 +140,15 @@ $student = [
     "City" => "Baguio City"
 ];
 
-foreach ($students as $key => $value) {
-    echo "$key: $value\n";
+foreach ($student as $key => $value) {
+    echo "$key: $value<br>";
 }
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 8";
+echo "<h2><strong>Activity 8</strong></h2>";
 ?>
 
 <?php
@@ -143,8 +168,10 @@ $factorial_result = factorial($num);
 echo "Factorial of $num is: $factorial_result";
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 9";
+echo "<h2><strong>Activity 9</strong></h2>";
 ?>
 
 <?php
@@ -168,38 +195,54 @@ for ($a =1; $a <= 50; $a++) {
 }
 ?>
 
-<?php
-echo "Activity 10";
-?>
+<br><br>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+<body>
+    <h2><strong>Activity 10</strong></h2>
+
+    <form method="POST" action="">
+        <label for="number">Enter a number: </label>
+        <input type="number" name="number" id="number" required>
+        <button type="submit">Check</button>
+    </form>
 <?php
 function isPrime($num) {
-    
     if ($num <= 1) {
         return false;
     }
 
     for ($a = 2; $a <= sqrt($num); $a++) {
-        
-        if($num % $a == 0) {
+        if ($num % $a == 0) {
             return false;
         }
     }
+    return true;
 }
 
-echo "Enter a number: ";
-$input = trim(fgets(STDIN));
-$num = (int)$input;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $num = (int)$_POST['number'];
 
-if (isPrime($num)) {
-    echo "$num is a prime number.\n";
-} else {
-    echo "$num is not a prime number.\n";
+    if (isPrime($num)) {
+        echo "$num is a prime number.<br>";
+    } else {
+        echo "$num is not a prime number.<br>";
+    }
 }
 ?>
+</body>
+</html>
+
+<br><br>
 
 <?php
-echo "Activity 11";
+echo "<h2><strong>Activity 11</strong></h2>";
 ?>
 
 <?php
@@ -220,8 +263,10 @@ while ($count < 8) {
 }
 ?>
 
+<br><br>
+
 <?php
-echo "Activity 12";
+echo "<h2><strong>Activity 12</strong></h2>";
 ?>
 
 <?php
@@ -238,9 +283,7 @@ function reverseString($input) {
 $inputString = "Hello";
 
 $outputString = reverseString($inputString);
-echo "Input: \"$inputString\"\n";
-echo "Output: \"$outputString\"\n"; 
-
-echo "Output: \"$outputString\"\n"; 
+echo "Input: \"$inputString\"<br>";
+echo "Output: \"$outputString\"<br>"; 
 ?>
 
