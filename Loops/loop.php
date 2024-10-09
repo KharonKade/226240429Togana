@@ -225,7 +225,7 @@ echo "Activity 12";
 ?>
 
 <?php
-function reverseString($input) ?{
+function reverseString($input) {
     $reversed = "";
     $length = strlen($input);
 
