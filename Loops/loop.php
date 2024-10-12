@@ -43,13 +43,15 @@ while ($number <= 20) {
 $password = "password123";
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-    $input_password = $_POST['password'];
+    if (isset($_POST['password'])) {
+        $input_password = $_POST['password'];
 
-    if ($input_password === $password) {
-        echo"Access Granted.";
-    } else {
-        echo "Incorrect password";
-    }
+        if ($input_password === $password) {
+            echo"Access Granted.";
+        } else {
+            echo "Incorrect password";
+        }
+    } 
 }
 ?>
 </body>
@@ -207,7 +209,7 @@ for ($a =1; $a <= 50; $a++) {
 <body>
     <h2><strong>Activity 10</strong></h2>
 
-    <form method="POST" action="">
+    <form method="POST" action="#result">
         <label for="number">Enter a number: </label>
         <input type="number" name="number" id="number" required>
         <button type="submit">Check</button>
@@ -227,12 +229,15 @@ function isPrime($num) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $num = (int)$_POST['number'];
-
-    if (isPrime($num)) {
-        echo "$num is a prime number.<br>";
-    } else {
-        echo "$num is not a prime number.<br>";
+    if (isset($_POST['number'])) {
+        $num = (int)$_POST['number'];
+        echo "<div id='result'>";
+        if (isPrime($num)) {
+            echo "$num is a prime number.<br>";
+        } else {
+            echo "$num is not a prime number.<br>";
+        }
+        echo "</div>";
     }
 }
 ?>
