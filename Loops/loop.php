@@ -67,7 +67,7 @@ $num = 7;
 for ($a = 1; $a <= 10; $a++) {
     $result = $num * $a;
 
-    echo "$num x $a = $result\n";
+    echo "$num x $a = $result<br>";
 }
 ?>
 
